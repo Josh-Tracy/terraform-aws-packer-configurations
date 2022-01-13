@@ -1,0 +1,8 @@
+# A sample playbook for a packer AMI baking demo
+- hosts: localhost
+  connection: local
+  gather_facts: true    
+  become: yes
+
+    roles:
+    - nginx-install
