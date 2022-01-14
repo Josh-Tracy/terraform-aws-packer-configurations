@@ -25,20 +25,27 @@ source "amazon-ebs" "ubuntu" {
   ssh_username = "ubuntu"
 }
 
-provisioner "shell" {
-  environment_vars = [
-    "FOO=hello world",
+build {
+  name    = "learn-packer"
+  sources = [
+    "source.amazon-ebs.ubuntu"
   ]
-  inline = [
-    "echo Installing ansible",
-    "sleep 5",
-    "sudo apt update",
-    "sudo apt install -y ansible",
-    "echo \"FOO is $FOO\" > example.txt",
-  ]
-}
+
+    provisioner "shell" {
+      environment_vars = [
+        "FOO=hello world",
+      ]
+      inline = [
+        "echo Installing ansible",
+        "sleep 5",
+        "sudo apt update",
+        "sudo apt install -y ansible",
+        "echo \"FOO is $FOO\" > example.txt",
+      ]
+    }
 
 # This provisioner is different from ansible-remote in that it will not run against remote nodes
     provisioner "ansible-local" {
       playbook_file = "ansible/security_playbook.yml"
     }
+  }

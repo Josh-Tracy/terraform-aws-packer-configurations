@@ -4,5 +4,5 @@
   gather_facts: true    
   become: yes
 
-    roles:
+  roles:
     - nginx-install
