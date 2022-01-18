@@ -38,8 +38,9 @@ build {
       inline = [
         "echo Installing ansible",
         "sleep 5",
-        "sudo apt update",
-        "sudo apt install -y ansible",
+        "sudo apt -y install software-properties-common",
+        "sudo apt-get update",
+        "sudo apt -y install ansible",
         "echo \"FOO is $FOO\" > example.txt",
       ]
     }
@@ -47,5 +48,6 @@ build {
 # This provisioner is different from ansible-remote in that it will not run against remote nodes
     provisioner "ansible-local" {
       playbook_file = "ansible/security_playbook.yml"
+      role_paths = ["ansible/roles"]
     }
   }

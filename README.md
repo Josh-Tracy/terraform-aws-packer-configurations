@@ -1,7 +1,10 @@
+## Work In Progress 
+## To Do
+- Environment Variables for buildspec and packer builds
 ## Purpose
 
 For use with my AWS CodePipeline CI/CD Packer project at https://github.com/Josh-Tracy/terraform-aws-packer-pipeline Packer is installed in a container via AWS CodeBuild to deplyoed an EC2 instance, configure it using BASH and Ansible, and bake a new AMI. Resources are deleted upon successful completion. 
-
+#test
 ## Documentation
 | Name | Description |
 |------| ----------- |
