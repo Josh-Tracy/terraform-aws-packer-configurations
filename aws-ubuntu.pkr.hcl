@@ -47,7 +47,7 @@ build {
 
 # This provisioner is different from ansible-remote in that it will not run against remote nodes
     provisioner "ansible-local" {
-      playbook_file = "ansible/security_playbook.yml"
+      playbook_file = "ansible/webserver.yml"
       role_paths = ["ansible/roles"]
     }
   }
